@@ -4,11 +4,13 @@ import { BookModel } from "@/app/utils/schemaModels";
 
 export async function POST(request) {
   const reqBody = await request.json();
-  const searchCondition = reqBody.searchCondition;
+  const target = reqBody.target;
 
   try {
     await connectDB();
-    const searchedBooks = await BookModel.find(searchCondition);
+    const searchedBooks = await BookModel.find({
+      title: new RegExp(".*" + target + ".*", "i"),
+    });
     return NextResponse.json({
       message: "検索成功",
       searchedBooks: searchedBooks,
