@@ -30,7 +30,12 @@ export async function POST(request) {
 
     return NextResponse.json({ message: "本の登録に成功", bookInfo });
   } catch (e) {
-    console.log(e);
-    return NextResponse.json({ message: "本の登録に失敗" });
+    if (e.code === 11000) {
+      // 既に追加されている本を追加しようとした場合
+      return NextResponse.json({ message: "すでに追加されている本です" });
+    } else {
+      // それ以外のエラー
+      return NextResponse.json({ message: "本の登録に失敗" });
+    }
   }
 }
