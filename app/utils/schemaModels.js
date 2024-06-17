@@ -26,6 +26,10 @@ const BookSchema = new Schema({
       type: String,
     },
   ],
+  lend_flag: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export const BookModel =
