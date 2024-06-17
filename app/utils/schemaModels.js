@@ -64,4 +64,4 @@ export const UserModel =
   mongoose.models.User || mongoose.model("User", UserSchema);
 
 export const LendModel =
-  mongoose.models.Book || mongoose.model("Lend", LendSchema);
+  mongoose.models.Lend || mongoose.model("Lend", LendSchema);
