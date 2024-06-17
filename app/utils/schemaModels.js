@@ -26,7 +26,7 @@ const BookSchema = new Schema({
       type: String,
     },
   ],
-  lend_flag: {
+  is_lend: {
     type: Boolean,
     default: false,
   },

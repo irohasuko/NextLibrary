@@ -23,6 +23,7 @@ export async function POST(request) {
       isbn: isbn,
       img_path: bookAPIInfo.imageLinks.thumbnail,
       authors: bookAPIInfo.authors,
+      is_lend: false,
     };
 
     // DBに登録

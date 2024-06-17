@@ -39,6 +39,7 @@ export default async function ShowBookDetails(context) {
       <h3>{book.authors}</h3>
       <h3>{book.isbn}</h3>
       <p>{book.description}</p>
+      <p>{book.is_lend ? "貸し出し中" : "貸し出し可"}</p>
       <Link href={`/book/delete/${book._id}`}>削除</Link>
     </div>
   );

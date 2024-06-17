@@ -28,6 +28,7 @@ export default async function ShowAllBooks() {
           <h3>{book.authors}</h3>
           <h3>{book.isbn}</h3>
           <p>{book.description.substring(0, 20)}</p>
+          <p>{book.is_lend ? "貸し出し中" : "貸し出し可"}</p>
           <br />
         </Link>
       ))}
