@@ -12,26 +12,6 @@ const getBook = async (id) => {
 export default async function ShowBookDetails(context) {
   const book = await getBook(context.params.id);
 
-  const clickHandler = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/book/delete/${context.params.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const jsonData = await response.json();
-      alert(jsonData.message);
-      Router.push();
-    } catch (e) {
-      alert("本情報の削除に失敗しました");
-    }
-  };
-
   return (
     <div>
       <img src={book.img_path} />
