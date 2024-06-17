@@ -19,12 +19,11 @@ const SearchBooks = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            target: word,
+            target: e.target.value,
           }),
         }
       );
       const jsonData = await response.json();
-      console.log(jsonData);
       setSerchedBooks(jsonData.searchedBooks);
     } catch (e) {
       console.log(e);

@@ -9,7 +9,11 @@ export async function POST(request) {
   try {
     await connectDB();
     const searchedBooks = await BookModel.find({
-      title: new RegExp(".*" + target + ".*", "i"),
+      $or: [
+        { title: { $regex: target, $options: "i" } },
+        { description: { $regex: target, $options: "i" } },
+        { authors: { $regex: target, $options: "i" } },
+      ],
     });
     return NextResponse.json({
       message: "検索成功",
