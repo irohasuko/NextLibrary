@@ -32,5 +32,36 @@ const BookSchema = new Schema({
   },
 });
 
+const UserSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+});
+
+const LendSchema = new Schema({
+  book_id: {
+    type: String,
+    required: true,
+  },
+  user_id: {
+    type: String,
+    required: true,
+  },
+  expected_return_date: {
+    type: Date,
+    required: true,
+  },
+  return_date: {
+    type: Date,
+  },
+});
+
 export const BookModel =
   mongoose.models.Book || mongoose.model("Book", BookSchema);
+
+export const UserModel =
+  mongoose.models.User || mongoose.model("User", UserSchema);
+
+export const LendModel =
+  mongoose.models.Book || mongoose.model("Lend", LendSchema);
