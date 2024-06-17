@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Home() {
+export default function Book() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Link href="/book/create">本の追加</Link>
