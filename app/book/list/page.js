@@ -2,7 +2,10 @@ import Link from "next/link";
 
 const getAllBooks = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/book/readAll`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/book/readAll`,
+    {
+      cache: "no-store",
+    }
   );
   const jsonData = await response.json();
   const allBooks = jsonData.allBooks;
@@ -14,7 +17,7 @@ export default async function ShowAllBooks() {
 
   return (
     <div>
-      <h1>商品一覧</h1>
+      <h1>蔵書一覧</h1>
       {allBooks.map((book) => (
         <Link
           href={`${process.env.NEXT_PUBLIC_API_URL}/book/detail/${book._id}`}
@@ -24,7 +27,7 @@ export default async function ShowAllBooks() {
           <h2>{book.title}</h2>
           <h3>{book.authors}</h3>
           <h3>{book.isbn}</h3>
-          <p>{book.description.substring(0, 80) + "........"}</p>
+          <p>{book.description.substring(0, 20)}</p>
           <br />
         </Link>
       ))}
