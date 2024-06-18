@@ -55,6 +55,10 @@ const LendSchema = new Schema({
   return_date: {
     type: Date,
   },
+  is_returned: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export const BookModel =
