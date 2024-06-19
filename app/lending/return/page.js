@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from "react";
 
+import Main from "@/app/components/Main";
+import PageTitle from "@/app/components/PageTitle";
+import Button from "@/app/components/Button";
+
 export default function ExecReturn() {
   const [books, setBooks] = useState([]);
   const [users, setUsers] = useState([]);
@@ -74,27 +78,35 @@ export default function ExecReturn() {
   };
 
   return (
-    <div>
-      <h1>返却処理</h1>
-      <form onSubmit={handleSubmit}>
-        <select onChange={(e) => getBooks(e.target.value)}>
-          {users.map((user) => (
-            <option value={user._id}>{user.name}</option>
-          ))}
-        </select>
-        {books.length != 0 ? (
-          <>
-            <select onChange={(e) => setBook(e.target.value)}>
-              {books.map((book) => (
-                <option value={book._id}>{book.title}</option>
-              ))}
-            </select>
-            <button>返却</button>
-          </>
-        ) : (
-          <p>現在本を借りていません</p>
-        )}
-      </form>
-    </div>
+    <Main>
+      <PageTitle title="返却処理" />
+      <div class="border border-gray-200 p-6 rounded-lg w-2/3 bg-white">
+        <form onSubmit={handleSubmit}>
+          <select
+            class="block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            onChange={(e) => getBooks(e.target.value)}
+          >
+            {users.map((user) => (
+              <option value={user._id}>{user.name}</option>
+            ))}
+          </select>
+          {books.length != 0 ? (
+            <>
+              <select
+                class="block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                onChange={(e) => setBook(e.target.value)}
+              >
+                {books.map((book) => (
+                  <option value={book._id}>{book.title}</option>
+                ))}
+              </select>
+              <Button>返却</Button>
+            </>
+          ) : (
+            <p class="text-lg text-red-600 m-5">現在本を借りていません</p>
+          )}
+        </form>
+      </div>
+    </Main>
   );
 }

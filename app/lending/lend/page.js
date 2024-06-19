@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Main from "@/app/components/Main";
+import PageTitle from "@/app/components/PageTitle";
+import Button from "@/app/components/Button";
 
 export default function ExecLend() {
   const [books, setBooks] = useState([]);
@@ -66,21 +69,29 @@ export default function ExecLend() {
   };
 
   return (
-    <div>
-      <h1>貸し出し処理</h1>
-      <form onSubmit={handleSubmit}>
-        <select onChange={(e) => setUser(e.target.value)}>
-          {users.map((user) => (
-            <option value={user._id}>{user.name}</option>
-          ))}
-        </select>
-        <select onChange={(e) => setBook(e.target.value)}>
-          {books.map((book) => (
-            <option value={book._id}>{book.title}</option>
-          ))}
-        </select>
-        <button>貸し出し</button>
-      </form>
-    </div>
+    <Main>
+      <PageTitle title="貸し出し処理" />
+      <div class="border border-gray-200 p-6 rounded-lg w-2/3 bg-white">
+        <form onSubmit={handleSubmit}>
+          <select
+            class="block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            onChange={(e) => setUser(e.target.value)}
+          >
+            {users.map((user) => (
+              <option value={user._id}>{user.name}</option>
+            ))}
+          </select>
+          <select
+            class="block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            onChange={(e) => setBook(e.target.value)}
+          >
+            {books.map((book) => (
+              <option value={book._id}>{book.title}</option>
+            ))}
+          </select>
+          <Button>貸し出し</Button>
+        </form>
+      </div>
+    </Main>
   );
 }
