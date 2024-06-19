@@ -41,7 +41,7 @@ const CreateBook = () => {
       <div class="border border-gray-200 p-6 rounded-lg w-2/3 bg-white">
         <form onSubmit={handleSubmit}>
           <input
-            class="block w-full flex-1 py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
+            class="block w-full flex-1 py-1.5 pl-1 border rounded text-gray-900 placeholder:text-gray-400 focus:ring-0"
             value={isbn}
             onChange={handleChange}
             type="text"
