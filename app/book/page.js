@@ -1,7 +1,7 @@
 import Link from "next/link";
-import PageTitle from "../components/PageTitle";
-import Main from "../components/Main";
-import Card from "../components/Card";
+import PageTitle from "@/app/components/PageTitle";
+import Main from "@/app/components/Main";
+import Card from "@/app/components/Card";
 
 export default function Book() {
   return (
