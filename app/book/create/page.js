@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Main from "@/app/components/Main";
+import PageTitle from "@/app/components/PageTitle";
+import Button from "@/app/components/Button";
 
 const CreateBook = () => {
   const [isbn, setIsbn] = useState("");
@@ -33,20 +36,23 @@ const CreateBook = () => {
   };
 
   return (
-    <div>
-      <h1>本情報の登録</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={isbn}
-          onChange={handleChange}
-          type="text"
-          name="isbn"
-          placeholder="本のISBN番号"
-          required
-        />
-        <button>登録</button>
-      </form>
-    </div>
+    <Main>
+      <PageTitle title="本情報の登録" />
+      <div class="border border-gray-200 p-6 rounded-lg w-2/3 bg-white">
+        <form onSubmit={handleSubmit}>
+          <input
+            class="block w-full flex-1 py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
+            value={isbn}
+            onChange={handleChange}
+            type="text"
+            name="isbn"
+            placeholder="本のISBN番号"
+            required
+          />
+          <Button>登録</Button>
+        </form>
+      </div>
+    </Main>
   );
 };
 
