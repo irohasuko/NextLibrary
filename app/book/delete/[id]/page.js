@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-export default async function deleteBook(id){
+export async function deleteBook(id) {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/book/delete/${id}`,
@@ -14,7 +14,7 @@ export default async function deleteBook(id){
     const message = "本情報の削除に失敗しました";
     return message;
   }
-};
+}
 
 export default async function DeleteBook(context) {
   const message = await deleteBook(context.params.id);
