@@ -5,7 +5,7 @@ import Link from "next/link";
 import Main from "@/app/components/Main";
 import PageTitle from "@/app/components/PageTitle";
 
-const SearchBooks = () => {
+export default function SearchBooks() {
   const [word, setWord] = useState("");
   const [searchedBooks, setSerchedBooks] = useState([]);
 
@@ -59,6 +59,4 @@ const SearchBooks = () => {
       ))}
     </Main>
   );
-};
-
-export default SearchBooks;
+}

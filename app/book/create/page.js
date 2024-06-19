@@ -5,7 +5,7 @@ import Main from "@/app/components/Main";
 import PageTitle from "@/app/components/PageTitle";
 import Button from "@/app/components/Button";
 
-const CreateBook = () => {
+export default function CreateBook() {
   const [isbn, setIsbn] = useState("");
 
   const handleChange = (e) => {
@@ -54,6 +54,4 @@ const CreateBook = () => {
       </div>
     </Main>
   );
-};
-
-export default CreateBook;
+}

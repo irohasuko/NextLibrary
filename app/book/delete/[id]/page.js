@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-const deleteBook = async (id) => {
+export default async function deleteBook(id){
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/book/delete/${id}`,
