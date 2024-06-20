@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 図書管理アプリ Next Library
 
-## Getting Started
+Next.js の練習用に作成した図書管理アプリです。
+フロント/バックは Next で、DB は MongoDB を使用して作成しました。
 
-First, run the development server:
+## 主な機能
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 蔵書の管理
+  - 図書の追加：ISBN 番号で図書を追加できます
+  - 図書の一覧：現在登録されている図書一覧を確認できます
+  - 図書の検索：キーワードでタイトル、著者名、本の説明から検索できます。
+- 貸出の管理
+  - 図書の貸出：貸出可能な図書から選択して貸し出し処理が行えます。
+  - 図書の返却：そのユーザが借りている図書から選択して返却処理が行えます。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Versel にデプロイしたアプリについて
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+下記の URL からデモ用のアプリにアクセスできます。  
+[Next Library](https://next-library-rouge.vercel.app/)  
+一部、開発環境では動いたのですがコチラでは正常に動かない部分があります。未検証です。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 貸出された本が「貸出済み」の表記にならない
+- 本の追加ができない
